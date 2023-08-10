@@ -6,4 +6,13 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\Damens\" />
+    <Folder Include="DTOs\DesignCategories\" />
+    <Folder Include="DTOs\Designs\" />
+    <Folder Include="DTOs\DesignTools\" />
+    <Folder Include="DTOs\Users\" />
+    <Folder Include="DTOs\TimeZones\" />
+  </ItemGroup>
+
 </Project>
