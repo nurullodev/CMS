@@ -56,9 +56,9 @@
 //var res5 = await fontSizeService.DeleteAsync(4);
 //Console.WriteLine(res5.Message);
 
-using CMS.Service.Services;
+//using CMS.Service.Services;
 
-TimeZonService timeZonService = new TimeZonService();
+//TimeZonService timeZonService = new TimeZonService();
 //var res1 = await timeZonService.CreateAsync(new CMS.Service.DTOs.TimeZones.TimeZonCreationDto
 //{
 //    Name = "Krasnoyarsk Summer Time",
@@ -81,5 +81,7 @@ TimeZonService timeZonService = new TimeZonService();
 //var res4 = await timeZonService.GetAllAsync();
 //res4.Data.ToList().ForEach(x => Console.WriteLine(x.Name));
 
-var res5 = await timeZonService.DeleteAsync(6);
-Console.WriteLine(res5.Message);
+//var res5 = await timeZonService.DeleteAsync(6);
+//Console.WriteLine(res5.Message);
+
+Console.WriteLine("f");

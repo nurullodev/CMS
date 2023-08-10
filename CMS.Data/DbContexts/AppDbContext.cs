@@ -84,11 +84,11 @@ public class AppDbContext : DbContext
             new DesignTool { Id = 4, ColorId = 1, FontSizeId = 1, CreatedAt = DateTime.UtcNow });
 
         modelBuilder.Entity<TimeZon>().HasData(
-            new TimeZon { Id = 1, Name = "Arabia", Abbreviation = "ADT", OffSet = "UTC +4"},
-            new TimeZon { Id = 2, Name = "Armenia", Abbreviation = "AMT", OffSet = "UTC +4" },
-            new TimeZon { Id = 3, Name = "Afganistan", Abbreviation = "AFT", OffSet = "UTC +4:30" },
-            new TimeZon { Id = 4, Name = "Alma-Ata", Abbreviation = "ALMT", OffSet = "UTC +6" },
-            new TimeZon { Id = 5, Name = "Uzbekistan ", Abbreviation = "UZT", OffSet = "UTC +5" });
+            new TimeZon { Id = 1, Name = "Arabia", Abbreviation = "ADT", OffSet = "UTC +4", CreatedAt = DateTime.UtcNow},
+            new TimeZon { Id = 2, Name = "Armenia", Abbreviation = "AMT", OffSet = "UTC +4", CreatedAt = DateTime.UtcNow },
+            new TimeZon { Id = 3, Name = "Afganistan", Abbreviation = "AFT", OffSet = "UTC +4:30", CreatedAt = DateTime.UtcNow },
+            new TimeZon { Id = 4, Name = "Alma-Ata", Abbreviation = "ALMT", OffSet = "UTC +6", CreatedAt = DateTime.UtcNow },
+            new TimeZon { Id = 5, Name = "Uzbekistan ", Abbreviation = "UZT", OffSet = "UTC +5", CreatedAt = DateTime.UtcNow });
 
         modelBuilder.Entity<Design>().HasData(
             new Design { Id = 1, Name = "Saua", Description = "Good", Attribute = 1, DesignCategoryId = 1, Language = Language.English, DamenId = 1, CreatedAt = DateTime.UtcNow},
