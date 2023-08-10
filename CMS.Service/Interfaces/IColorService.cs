@@ -7,6 +7,7 @@ public interface IColorService
 {
     Task<Response<ColorResultDto>> CreateAsync(ColorCreationDto dto);
     Task<Response<ColorResultDto>> UpdateAsync(ColorUpdateDto dto);
+    Task<Response<ColorResultDto>> GetByIdAsync(long id);
     Task<Response<bool>> DeleteAsync(long id);
     Task<Response<IEnumerable<ColorResultDto>>> GetAllAsync();
 }

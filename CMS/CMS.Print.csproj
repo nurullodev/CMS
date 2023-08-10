@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CMS.Data\CMS.Data.csproj" />
+    <ProjectReference Include="..\CMS.Service\CMS.Service.csproj" />
   </ItemGroup>
 
 </Project>

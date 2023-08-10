@@ -17,6 +17,7 @@ public class Repository<T> : IRepository<T> where T : Auditable
 
     public async Task AddAsync(T entity)
     {
+        entity.CreatedAt = DateTime.UtcNow;
         await this.dbSet.AddAsync(entity);
     }
 
