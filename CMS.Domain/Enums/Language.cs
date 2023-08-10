@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CMS.Domain.Enums;
 
-namespace CMS.Domain.Enums
+public enum Language
 {
-    internal class Language
-    {
-    }
+    English = 1,
+    Mandarin,
+    Chinese,
+    Hindi,
+    Spanish,
+    French,
+    Standard,
+    Arabic,
+    Bengali,
+    Russian,
+    Portuguese,
+    Urdu
 }

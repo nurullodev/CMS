@@ -1,6 +1,6 @@
 ﻿using CMS.Domain.Commons;
 
-namespace CMS.Domain.Entities.Designs;
+namespace CMS.Domain.Entities.TimeZones;
 
 public class TimeZon : Auditable
 {
