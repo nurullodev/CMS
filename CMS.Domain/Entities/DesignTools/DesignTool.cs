@@ -9,7 +9,4 @@ public class DesignTool : Auditable
 
     public long FontSizeId { get; set; }
     public FontSize FontSize { get; set; }
-
-    public long PageId { get; set; }
-    public Page Page { get; set; }
 }

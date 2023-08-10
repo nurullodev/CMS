@@ -15,10 +15,10 @@ public class Design : Auditable
 
     [Column("sescription"), MinLength(3)]
     public string Description { get; set; }
-    public Language Language { get; set; }
 
-    public long TimeZonId { get; set; }
-    public TimeZon TimeZon { get; set; }
+    // this is ordinal number 
+    public int Attribute { get; set; }
+    public Language Language { get; set; }
 
     public long DamenId { get; set; }
     public Damen Damen { get; set; }

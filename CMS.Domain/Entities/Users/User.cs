@@ -17,7 +17,7 @@ public class User : Auditable
     [Column("email_address"), DataType(DataType.EmailAddress)]
     public string Email { get; set; }
 
-    [Column("password"), DataType(DataType.Password)]
+    [Column("password"),MinLength(4)]
     public string Password { get; set; }
 
     public long DamenId { get; set; }
