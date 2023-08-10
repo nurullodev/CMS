@@ -5,4 +5,5 @@ namespace CMS.Data.IRepositories;
 
 public interface IColorRepository : IRepository<Color>
 {
+    Task<Color> SelectByNameAsync(string name);
 }
