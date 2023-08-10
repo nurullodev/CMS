@@ -5,4 +5,5 @@ namespace CMS.Data.IRepositories;
 
 public interface IFontSizeRepository : IRepository<FontSize>
 {
+    Task<FontSize> SelectBySizeAsync(string size);
 }

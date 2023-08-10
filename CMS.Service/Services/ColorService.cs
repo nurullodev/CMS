@@ -50,7 +50,7 @@ public class ColorService : IColorService
             return new Response<ColorResultDto>
             {
                 StatusCode = 404,
-                Message = $"This color {dto.Id} is not found",
+                Message = $"This color Id {dto.Id} is not found",
                 Data = null
             };
 
@@ -74,7 +74,7 @@ public class ColorService : IColorService
             return new Response<ColorResultDto>
             {
                 StatusCode = 404,
-                Message = $"This color {id} is not found",
+                Message = $"This color Id {id} is not found",
                 Data = null
             };
 
@@ -93,7 +93,7 @@ public class ColorService : IColorService
             return new Response<bool>
             {
                 StatusCode = 404,
-                Message = $"This color {id} is not found",
+                Message = $"This color ID {id} is not found",
                 Data = false
             };
 
