@@ -20,10 +20,10 @@ public class User : Auditable
     [Column("password"),MinLength(4)]
     public string Password { get; set; }
 
-    public long DamenId { get; set; }
+    public long? DamenId { get; set; }
     public Damen Damen { get; set; }
 
-    public long DesignId { get; set; }
+    public long? DesignId { get; set; }
     public Design Design { get; set; }
 
     public IQueryable<UserGroup> userGroups { get; set; }

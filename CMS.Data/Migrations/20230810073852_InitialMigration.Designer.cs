@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CMS.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230810073402_InitialMigration")]
+    [Migration("20230810073852_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,31 +50,31 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7711),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4872),
                             Name = "Movies"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7711),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4873),
                             Name = "Fitness"
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7712),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4874),
                             Name = "Politics"
                         },
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7713),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4874),
                             Name = "World"
                         },
                         new
                         {
                             Id = 5L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7713),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4875),
                             Name = "Technology"
                         });
                 });
@@ -93,14 +93,14 @@ namespace CMS.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("DamenId")
+                    b.Property<long?>("DamenId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Description")
                         .HasColumnType("text")
                         .HasColumnName("sescription");
 
-                    b.Property<long>("DesignCategoryId")
+                    b.Property<long?>("DesignCategoryId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("DesignCategoryId1")
@@ -131,7 +131,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 1L,
                             Attribute = 1,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7694),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4861),
                             DamenId = 1L,
                             Description = "Good",
                             DesignCategoryId = 1L,
@@ -142,7 +142,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 2L,
                             Attribute = 2,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7695),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4862),
                             DamenId = 2L,
                             Description = "Good",
                             DesignCategoryId = 2L,
@@ -177,13 +177,13 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7643),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4814),
                             Name = "Red"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7644),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4815),
                             Name = "Yellow"
                         });
                 });
@@ -196,13 +196,13 @@ namespace CMS.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("ColorId")
+                    b.Property<long?>("ColorId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("FontSizeId")
+                    b.Property<long?>("FontSizeId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -221,28 +221,28 @@ namespace CMS.Data.Migrations
                         {
                             Id = 1L,
                             ColorId = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7663),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4834),
                             FontSizeId = 1L
                         },
                         new
                         {
                             Id = 2L,
                             ColorId = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7664),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4835),
                             FontSizeId = 1L
                         },
                         new
                         {
                             Id = 3L,
                             ColorId = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7665),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4836),
                             FontSizeId = 1L
                         },
                         new
                         {
                             Id = 4L,
                             ColorId = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7666),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4836),
                             FontSizeId = 1L
                         });
                 });
@@ -273,13 +273,13 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7655),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4825),
                             Size = "5px"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7656),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4825),
                             Size = "10px"
                         });
                 });
@@ -310,25 +310,25 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7614),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4786),
                             Name = "Uzum"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7615),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4787),
                             Name = "laptops"
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7615),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4788),
                             Name = "Vachach"
                         },
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7616),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4788),
                             Name = "Naura"
                         });
                 });
@@ -416,10 +416,10 @@ namespace CMS.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("DamenId")
+                    b.Property<long?>("DamenId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("DesignId")
+                    b.Property<long?>("DesignId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Email")
@@ -455,9 +455,8 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7512),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4684),
                             DamenId = 1L,
-                            DesignId = 0L,
                             Email = "nurullo@gmail.com",
                             FirstName = "Nurullo",
                             LastName = "Nurmatov",
@@ -466,9 +465,8 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7515),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4687),
                             DamenId = 2L,
-                            DesignId = 0L,
                             Email = "asad@gmail.com",
                             FirstName = "Asadbek",
                             LastName = "Asadov",
@@ -477,9 +475,8 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7516),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4689),
                             DamenId = 3L,
-                            DesignId = 0L,
                             Email = "ikrom@gmail.com",
                             FirstName = "Ikrom",
                             LastName = "Ikromov",
@@ -488,9 +485,8 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7516),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4690),
                             DamenId = 4L,
-                            DesignId = 0L,
                             Email = "nurullo@gmail.com",
                             FirstName = "Axror",
                             LastName = "Alimov",
@@ -509,7 +505,7 @@ namespace CMS.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("DamenId")
+                    b.Property<long?>("DamenId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Email")
@@ -518,7 +514,7 @@ namespace CMS.Data.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("UserId")
+                    b.Property<long?>("UserId")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("UserId1")
@@ -538,7 +534,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7627),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4801),
                             DamenId = 1L,
                             Email = "john@example@gmail.com",
                             UserId = 1L
@@ -546,7 +542,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7628),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4802),
                             DamenId = 2L,
                             Email = "examp@gmail.com",
                             UserId = 2L
@@ -554,7 +550,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7629),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4802),
                             DamenId = 3L,
                             Email = "exam2p@gmail.com",
                             UserId = 3L
@@ -562,7 +558,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7629),
+                            CreatedAt = new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4803),
                             DamenId = 4L,
                             Email = "examp3@gmail.com",
                             UserId = 4L
@@ -573,15 +569,11 @@ namespace CMS.Data.Migrations
                 {
                     b.HasOne("CMS.Domain.Entities.Domains.Damen", "Damen")
                         .WithMany()
-                        .HasForeignKey("DamenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DamenId");
 
                     b.HasOne("CMS.Domain.Entities.DesignCategories.DesignCategory", "DesignCategory")
                         .WithMany()
-                        .HasForeignKey("DesignCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DesignCategoryId");
 
                     b.HasOne("CMS.Domain.Entities.DesignCategories.DesignCategory", null)
                         .WithMany("Designs")
@@ -596,15 +588,11 @@ namespace CMS.Data.Migrations
                 {
                     b.HasOne("CMS.Domain.Entities.DesignTools.Color", "Color")
                         .WithMany()
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ColorId");
 
                     b.HasOne("CMS.Domain.Entities.DesignTools.FontSize", "FontSize")
                         .WithMany()
-                        .HasForeignKey("FontSizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FontSizeId");
 
                     b.Navigation("Color");
 
@@ -615,15 +603,11 @@ namespace CMS.Data.Migrations
                 {
                     b.HasOne("CMS.Domain.Entities.Domains.Damen", "Damen")
                         .WithMany()
-                        .HasForeignKey("DamenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DamenId");
 
                     b.HasOne("CMS.Domain.Entities.Designs.Design", "Design")
                         .WithMany()
-                        .HasForeignKey("DesignId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DesignId");
 
                     b.Navigation("Damen");
 
@@ -634,15 +618,11 @@ namespace CMS.Data.Migrations
                 {
                     b.HasOne("CMS.Domain.Entities.Domains.Damen", "Damen")
                         .WithMany()
-                        .HasForeignKey("DamenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DamenId");
 
                     b.HasOne("CMS.Domain.Entities.Users.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.HasOne("CMS.Domain.Entities.Users.User", null)
                         .WithMany("userGroups")

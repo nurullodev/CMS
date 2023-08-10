@@ -97,8 +97,8 @@ namespace CMS.Data.Migrations
                     sescription = table.Column<string>(type: "text", nullable: true),
                     Attribute = table.Column<int>(type: "integer", nullable: false),
                     Language = table.Column<int>(type: "integer", nullable: false),
-                    DamenId = table.Column<long>(type: "bigint", nullable: false),
-                    DesignCategoryId = table.Column<long>(type: "bigint", nullable: false),
+                    DamenId = table.Column<long>(type: "bigint", nullable: true),
+                    DesignCategoryId = table.Column<long>(type: "bigint", nullable: true),
                     DesignCategoryId1 = table.Column<long>(type: "bigint", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
@@ -110,14 +110,12 @@ namespace CMS.Data.Migrations
                         name: "FK_Designs_Damens_DamenId",
                         column: x => x.DamenId,
                         principalTable: "Damens",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Designs_DesignCategories_DesignCategoryId",
                         column: x => x.DesignCategoryId,
                         principalTable: "DesignCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Designs_DesignCategories_DesignCategoryId1",
                         column: x => x.DesignCategoryId1,
@@ -131,8 +129,8 @@ namespace CMS.Data.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ColorId = table.Column<long>(type: "bigint", nullable: false),
-                    FontSizeId = table.Column<long>(type: "bigint", nullable: false),
+                    ColorId = table.Column<long>(type: "bigint", nullable: true),
+                    FontSizeId = table.Column<long>(type: "bigint", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -143,14 +141,12 @@ namespace CMS.Data.Migrations
                         name: "FK_DesignTools_Colors_ColorId",
                         column: x => x.ColorId,
                         principalTable: "Colors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_DesignTools_FontSizes_FontSizeId",
                         column: x => x.FontSizeId,
                         principalTable: "FontSizes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -163,8 +159,8 @@ namespace CMS.Data.Migrations
                     last_name = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: true),
                     email_address = table.Column<string>(type: "text", nullable: true),
                     password = table.Column<string>(type: "text", nullable: true),
-                    DamenId = table.Column<long>(type: "bigint", nullable: false),
-                    DesignId = table.Column<long>(type: "bigint", nullable: false),
+                    DamenId = table.Column<long>(type: "bigint", nullable: true),
+                    DesignId = table.Column<long>(type: "bigint", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -175,14 +171,12 @@ namespace CMS.Data.Migrations
                         name: "FK_Users_Damens_DamenId",
                         column: x => x.DamenId,
                         principalTable: "Damens",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Users_Designs_DesignId",
                         column: x => x.DesignId,
                         principalTable: "Designs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -192,8 +186,8 @@ namespace CMS.Data.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Email = table.Column<string>(type: "text", nullable: true),
-                    UserId = table.Column<long>(type: "bigint", nullable: false),
-                    DamenId = table.Column<long>(type: "bigint", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: true),
+                    DamenId = table.Column<long>(type: "bigint", nullable: true),
                     UserId1 = table.Column<long>(type: "bigint", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
@@ -205,14 +199,12 @@ namespace CMS.Data.Migrations
                         name: "FK_Groups_Damens_DamenId",
                         column: x => x.DamenId,
                         principalTable: "Damens",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Groups_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Groups_Users_UserId1",
                         column: x => x.UserId1,
@@ -225,8 +217,8 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7643), "Red", null },
-                    { 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7644), "Yellow", null }
+                    { 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4814), "Red", null },
+                    { 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4815), "Yellow", null }
                 });
 
             migrationBuilder.InsertData(
@@ -234,10 +226,10 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7614), "Uzum", null },
-                    { 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7615), "laptops", null },
-                    { 3L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7615), "Vachach", null },
-                    { 4L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7616), "Naura", null }
+                    { 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4786), "Uzum", null },
+                    { 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4787), "laptops", null },
+                    { 3L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4788), "Vachach", null },
+                    { 4L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4788), "Naura", null }
                 });
 
             migrationBuilder.InsertData(
@@ -245,11 +237,11 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7711), "Movies", null },
-                    { 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7711), "Fitness", null },
-                    { 3L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7712), "Politics", null },
-                    { 4L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7713), "World", null },
-                    { 5L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7713), "Technology", null }
+                    { 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4872), "Movies", null },
+                    { 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4873), "Fitness", null },
+                    { 3L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4874), "Politics", null },
+                    { 4L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4874), "World", null },
+                    { 5L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4875), "Technology", null }
                 });
 
             migrationBuilder.InsertData(
@@ -257,8 +249,8 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "size", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7655), "5px", null },
-                    { 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7656), "10px", null }
+                    { 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4825), "5px", null },
+                    { 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4825), "10px", null }
                 });
 
             migrationBuilder.InsertData(
@@ -278,10 +270,10 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "ColorId", "CreatedAt", "FontSizeId", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7663), 1L, null },
-                    { 2L, 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7664), 1L, null },
-                    { 3L, 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7665), 1L, null },
-                    { 4L, 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7666), 1L, null }
+                    { 1L, 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4834), 1L, null },
+                    { 2L, 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4835), 1L, null },
+                    { 3L, 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4836), 1L, null },
+                    { 4L, 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4836), 1L, null }
                 });
 
             migrationBuilder.InsertData(
@@ -289,8 +281,8 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "Attribute", "CreatedAt", "DamenId", "sescription", "DesignCategoryId", "DesignCategoryId1", "Language", "name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, 1, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7694), 1L, "Good", 1L, null, 1, "Saua", null },
-                    { 2L, 2, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7695), 2L, "Good", 2L, null, 1, "One", null }
+                    { 1L, 1, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4861), 1L, "Good", 1L, null, 1, "Saua", null },
+                    { 2L, 2, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4862), 2L, "Good", 2L, null, 1, "One", null }
                 });
 
             migrationBuilder.InsertData(
@@ -298,10 +290,10 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "DamenId", "DesignId", "email_address", "first_name", "last_name", "password", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7512), 1L, 0L, "nurullo@gmail.com", "Nurullo", "Nurmatov", "1234", null },
-                    { 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7515), 2L, 0L, "asad@gmail.com", "Asadbek", "Asadov", "2564", null },
-                    { 3L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7516), 3L, 0L, "ikrom@gmail.com", "Ikrom", "Ikromov", "4567", null },
-                    { 4L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7516), 4L, 0L, "nurullo@gmail.com", "Axror", "Alimov", "7415", null }
+                    { 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4684), 1L, null, "nurullo@gmail.com", "Nurullo", "Nurmatov", "1234", null },
+                    { 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4687), 2L, null, "asad@gmail.com", "Asadbek", "Asadov", "2564", null },
+                    { 3L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4689), 3L, null, "ikrom@gmail.com", "Ikrom", "Ikromov", "4567", null },
+                    { 4L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4690), 4L, null, "nurullo@gmail.com", "Axror", "Alimov", "7415", null }
                 });
 
             migrationBuilder.InsertData(
@@ -309,10 +301,10 @@ namespace CMS.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "DamenId", "Email", "UpdatedAt", "UserId", "UserId1" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7627), 1L, "john@example@gmail.com", null, 1L, null },
-                    { 2L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7628), 2L, "examp@gmail.com", null, 2L, null },
-                    { 3L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7629), 3L, "exam2p@gmail.com", null, 3L, null },
-                    { 4L, new DateTime(2023, 8, 10, 7, 34, 2, 182, DateTimeKind.Utc).AddTicks(7629), 4L, "examp3@gmail.com", null, 4L, null }
+                    { 1L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4801), 1L, "john@example@gmail.com", null, 1L, null },
+                    { 2L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4802), 2L, "examp@gmail.com", null, 2L, null },
+                    { 3L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4802), 3L, "exam2p@gmail.com", null, 3L, null },
+                    { 4L, new DateTime(2023, 8, 10, 7, 38, 51, 845, DateTimeKind.Utc).AddTicks(4803), 4L, "examp3@gmail.com", null, 4L, null }
                 });
 
             migrationBuilder.CreateIndex(

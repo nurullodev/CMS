@@ -9,9 +9,9 @@ public class UserGroup : Auditable
     [EmailAddress]
     public string Email { get; set; }
 
-    public long UserId { get; set; }
+    public long? UserId { get; set; }
     public User User { get; set; }
 
-    public long DamenId { get; set; }
+    public long? DamenId { get; set; }
     public Damen Damen { get; set; }
 }

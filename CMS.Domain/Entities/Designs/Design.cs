@@ -20,9 +20,9 @@ public class Design : Auditable
     public int Attribute { get; set; }
     public Language Language { get; set; }
 
-    public long DamenId { get; set; }
+    public long? DamenId { get; set; }
     public Damen Damen { get; set; }
 
-    public long DesignCategoryId { get; set; }
+    public long? DesignCategoryId { get; set; }
     public DesignCategory DesignCategory { get; set; }
 }
