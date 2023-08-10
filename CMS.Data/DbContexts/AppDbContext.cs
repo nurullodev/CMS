@@ -1,10 +1,11 @@
-﻿using CMS.Domain.Entities.DesignCategories;
-using CMS.Domain.Entities.Designs;
-using CMS.Domain.Entities.DesignTools;
-using CMS.Domain.Entities.Domains;
-using CMS.Domain.Entities.TimeZones;
+﻿using CMS.Domain.Enums;
 using CMS.Domain.Entities.Users;
+using CMS.Domain.Entities.Designs;
+using CMS.Domain.Entities.Domains;
 using Microsoft.EntityFrameworkCore;
+using CMS.Domain.Entities.TimeZones;
+using CMS.Domain.Entities.DesignTools;
+using CMS.Domain.Entities.DesignCategories;
 
 namespace CMS.Data.DbContexts;
 
@@ -25,7 +26,6 @@ public class AppDbContext : DbContext
     public DbSet<DesignTool> DesignTools { get; set; }  
     public DbSet<FontSize> FontSizes { get; set; }
     public DbSet<Color> Colors { get; set; }
-    public DbSet<Page> Pages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -38,10 +38,6 @@ public class AppDbContext : DbContext
             .HasOne(d => d.DesignCategory)
             .WithMany()
             .HasForeignKey(d => d.DesignCategoryId);
-        modelBuilder.Entity<Design>()
-            .HasOne(t => t.TimeZon)
-            .WithMany()
-            .HasForeignKey(t => t.TimeZonId);
 
         modelBuilder.Entity<DesignTool>()
             .HasOne(c => c.Color)
@@ -51,9 +47,58 @@ public class AppDbContext : DbContext
             .HasOne(s => s.FontSize)
             .WithMany()
             .HasForeignKey(s => s.FontSizeId);
-        modelBuilder.Entity<DesignTool>()
-            .HasOne(p => p.Page)
-            .WithMany()
-            .HasForeignKey(p => p.PageId);
+
+
+        modelBuilder.Entity<User>().HasData(
+            new User { Id = 1, FirstName = "Nurullo", LastName = "Nurmatov", Email = "nurullo@gmail.com",Password = "1234",DamenId = 1 ,CreatedAt = DateTime.UtcNow},
+            new User { Id = 2, FirstName = "Asadbek", LastName = "Asadov", Email = "asad@gmail.com", Password = "2564", DamenId = 2, CreatedAt = DateTime.UtcNow },
+            new User { Id = 3, FirstName = "Ikrom", LastName = "Ikromov", Email = "ikrom@gmail.com", Password = "4567",DamenId = 3, CreatedAt = DateTime.UtcNow },
+            new User { Id = 4, FirstName = "Axror", LastName = "Alimov", Email = "nurullo@gmail.com", Password = "7415",DamenId = 4, CreatedAt = DateTime.UtcNow });
+        
+        modelBuilder.Entity<Damen>().HasData(
+            new Damen {Id = 1, Name = "Uzum", CreatedAt = DateTime.UtcNow },
+            new Damen { Id = 2, Name = "laptops", CreatedAt = DateTime.UtcNow },
+            new Damen { Id = 3, Name = "Vachach", CreatedAt = DateTime.UtcNow },
+            new Damen { Id = 4, Name = "Naura", CreatedAt = DateTime.UtcNow });
+
+        modelBuilder.Entity<UserGroup>().HasData(
+            new UserGroup { Id = 1, Email = "john@example@gmail.com", UserId = 1,DamenId = 1, CreatedAt = DateTime.UtcNow },
+            new UserGroup { Id = 2, Email = "examp@gmail.com", UserId = 2, DamenId = 2, CreatedAt = DateTime.UtcNow },
+            new UserGroup { Id = 3, Email = "exam2p@gmail.com", UserId = 3, DamenId = 3, CreatedAt = DateTime.UtcNow },
+            new UserGroup { Id = 4, Email = "examp3@gmail.com", UserId = 4, DamenId = 4, CreatedAt = DateTime.UtcNow });
+
+        modelBuilder.Entity<Color>().HasData(
+            new Color { Id = 1, Name = "Red", CreatedAt = DateTime.UtcNow },
+            new Color { Id = 2, Name = "Yellow", CreatedAt = DateTime.UtcNow });
+
+        modelBuilder.Entity<FontSize>().
+            HasData(
+            new FontSize { Id = 1, Size = "5px", CreatedAt = DateTime.UtcNow },
+            new FontSize { Id = 2, Size = "10px", CreatedAt = DateTime.UtcNow });
+
+
+        modelBuilder.Entity<DesignTool>().HasData(
+            new DesignTool { Id = 1, ColorId = 1, FontSizeId = 1, CreatedAt = DateTime.UtcNow },
+            new DesignTool { Id = 2, ColorId = 2, FontSizeId = 1, CreatedAt = DateTime.UtcNow },
+            new DesignTool { Id = 3, ColorId = 2, FontSizeId = 1, CreatedAt = DateTime.UtcNow },
+            new DesignTool { Id = 4, ColorId = 1, FontSizeId = 1, CreatedAt = DateTime.UtcNow });
+
+        modelBuilder.Entity<TimeZon>().HasData(
+            new TimeZon { Id = 1, Name = "Arabia", Abbreviation = "ADT", OffSet = "UTC +4"},
+            new TimeZon { Id = 2, Name = "Armenia", Abbreviation = "AMT", OffSet = "UTC +4" },
+            new TimeZon { Id = 3, Name = "Afganistan", Abbreviation = "AFT", OffSet = "UTC +4:30" },
+            new TimeZon { Id = 4, Name = "Alma-Ata", Abbreviation = "ALMT", OffSet = "UTC +6" },
+            new TimeZon { Id = 5, Name = "Uzbekistan ", Abbreviation = "UZT", OffSet = "UTC +5" });
+
+        modelBuilder.Entity<Design>().HasData(
+            new Design { Id = 1, Name = "Saua", Description = "Good", Attribute = 1, DesignCategoryId = 1, Language = Language.English, DamenId = 1, CreatedAt = DateTime.UtcNow},
+             new Design { Id = 2, Name = "One", Description = "Good", Attribute = 2, DesignCategoryId = 2, Language = Language.English, DamenId = 2, CreatedAt = DateTime.UtcNow});
+       
+        modelBuilder.Entity<DesignCategory>().HasData(
+            new DesignCategory { Id = 1, Name = "Movies", CreatedAt = DateTime.UtcNow },
+            new DesignCategory { Id = 2, Name = "Fitness", CreatedAt = DateTime.UtcNow},
+            new DesignCategory { Id = 3, Name = "Politics", CreatedAt = DateTime.UtcNow },
+            new DesignCategory { Id = 4, Name = "World", CreatedAt = DateTime.UtcNow },
+            new DesignCategory { Id = 5, Name = "Technology", CreatedAt = DateTime.UtcNow });
     }
 }
