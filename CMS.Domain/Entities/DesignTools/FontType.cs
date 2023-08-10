@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CMS.Domain.Entities.DesignTools;
 
-public class FontSize : Auditable
+public class FontType : Auditable
 {
     [Column("size")]
-    public string Size { get; set; }
+    public string Type { get; set; }
 }

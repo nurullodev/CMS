@@ -4,7 +4,6 @@ using CMS.Service.DTOs.Colors;
 using CMS.Service.DTOs.Damens;
 using CMS.Service.DTOs.Designs;
 using CMS.Domain.Entities.Users;
-using CMS.Service.DTOs.FontSizes;
 using CMS.Service.DTOs.TimeZones;
 using CMS.Domain.Entities.Domains;
 using CMS.Service.DTOs.UserGroups;
@@ -14,6 +13,7 @@ using CMS.Domain.Entities.TimeZones;
 using CMS.Domain.Entities.DesignTools;
 using CMS.Service.DTOs.DesignCategories;
 using CMS.Domain.Entities.DesignCategories;
+using CMS.Service.DTOs.FontTypes;
 
 namespace CMS.Service.Mappers;
 
@@ -62,8 +62,8 @@ public class MappingProfile : Profile
         CreateMap<TimeZon, TimeZonCreationDto>().ReverseMap();
 
         //FontSize 
-        CreateMap<FontSizeResultDto, FontSize>().ReverseMap();  
-        CreateMap<FontSizeUpdateDto, FontSize>().ReverseMap();
-        CreateMap<FontSize, FontSizeCreationDto>().ReverseMap();
+        CreateMap<FontTypeResultDto, FontType>().ReverseMap();  
+        CreateMap<FontTypeUpdateDto, FontType>().ReverseMap();
+        CreateMap<FontType, FontTypeCreationDto>().ReverseMap();
     }
 }

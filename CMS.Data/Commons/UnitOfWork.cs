@@ -16,7 +16,7 @@ public class UnitOfWork : IUnitOfWork
         DamenRepository = new DamenRepository(_appDbContext);
         DesignRepository = new DesignRepository(_appDbContext);
         TimeZonRepository = new TimeZonRepository(_appDbContext);
-        FontSizeRepository = new FontSizeRepository(_appDbContext);
+        FontTypeRepository = new FontTypeRepository(_appDbContext);
         UserGroupRepository = new UserGroupRepository(_appDbContext);
         DesignToolRepository = new DesignToolRepository(_appDbContext);
         DesignCategoryRepository = new DesignCategoryRepository(_appDbContext);
@@ -24,7 +24,7 @@ public class UnitOfWork : IUnitOfWork
 
     public IColorRepository ColorRepository { get; }
 
-    public IFontSizeRepository FontSizeRepository { get; }
+    public IFontTypeRepository FontTypeRepository { get; }
 
     public IDesignCategoryRepository DesignCategoryRepository { get; }
 

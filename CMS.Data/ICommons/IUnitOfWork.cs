@@ -5,7 +5,7 @@ namespace CMS.Data.ICommons;
 public interface IUnitOfWork : IDisposable
 {
     IColorRepository ColorRepository { get; }
-    IFontSizeRepository FontSizeRepository { get; }
+    IFontTypeRepository FontTypeRepository { get; }
     IDesignCategoryRepository DesignCategoryRepository { get; }
     IDesignRepository DesignRepository { get; }
     IDesignToolRepository DesignToolRepository { get; } 

@@ -24,7 +24,7 @@ public class AppDbContext : DbContext
     public DbSet<TimeZon> TimeZons { get; set; }
     public DbSet<DesignCategory> DesignCategories { get; set; }
     public DbSet<DesignTool> DesignTools { get; set; }  
-    public DbSet<FontSize> FontSizes { get; set; }
+    public DbSet<FontType> FontTypes { get; set; }
     public DbSet<Color> Colors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,9 +44,9 @@ public class AppDbContext : DbContext
             .WithMany()
             .HasForeignKey(c => c.ColorId);
         modelBuilder.Entity<DesignTool>()
-            .HasOne(s => s.FontSize)
+            .HasOne(s => s.FontType)
             .WithMany()
-            .HasForeignKey(s => s.FontSizeId);
+            .HasForeignKey(s => s.FontTypeId);
 
 
         modelBuilder.Entity<User>().HasData(
@@ -71,17 +71,17 @@ public class AppDbContext : DbContext
             new Color { Id = 1, Name = "Red", CreatedAt = DateTime.UtcNow },
             new Color { Id = 2, Name = "Yellow", CreatedAt = DateTime.UtcNow });
 
-        modelBuilder.Entity<FontSize>().
+        modelBuilder.Entity<FontType>().
             HasData(
-            new FontSize { Id = 1, Size = "5px", CreatedAt = DateTime.UtcNow },
-            new FontSize { Id = 2, Size = "10px", CreatedAt = DateTime.UtcNow });
+            new FontType { Id = 1, Type = "Normal Text", CreatedAt = DateTime.UtcNow },
+            new FontType { Id = 2, Type = "\u001b[3mSmaller Text \u001b[0m", CreatedAt = DateTime.UtcNow });
 
 
         modelBuilder.Entity<DesignTool>().HasData(
-            new DesignTool { Id = 1, ColorId = 1, FontSizeId = 1, CreatedAt = DateTime.UtcNow },
-            new DesignTool { Id = 2, ColorId = 2, FontSizeId = 1, CreatedAt = DateTime.UtcNow },
-            new DesignTool { Id = 3, ColorId = 2, FontSizeId = 1, CreatedAt = DateTime.UtcNow },
-            new DesignTool { Id = 4, ColorId = 1, FontSizeId = 1, CreatedAt = DateTime.UtcNow });
+            new DesignTool { Id = 1, ColorId = 1, FontTypeId = 1, CreatedAt = DateTime.UtcNow },
+            new DesignTool { Id = 2, ColorId = 2, FontTypeId = 1, CreatedAt = DateTime.UtcNow },
+            new DesignTool { Id = 3, ColorId = 2, FontTypeId = 1, CreatedAt = DateTime.UtcNow },
+            new DesignTool { Id = 4, ColorId = 1, FontTypeId = 1, CreatedAt = DateTime.UtcNow });
 
         modelBuilder.Entity<TimeZon>().HasData(
             new TimeZon { Id = 1, Name = "Arabia", Abbreviation = "ADT", OffSet = "UTC +4", CreatedAt = DateTime.UtcNow},
