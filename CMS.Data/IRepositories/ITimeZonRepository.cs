@@ -5,4 +5,5 @@ namespace CMS.Data.IRepositories;
 
 public interface ITimeZonRepository : IRepository<TimeZon>
 {
+    Task<TimeZon> SelectByNameAsync(string name);
 }

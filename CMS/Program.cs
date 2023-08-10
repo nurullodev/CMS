@@ -25,9 +25,9 @@
 //Console.WriteLine(res5.Message);
 
 
-using CMS.Service.Services;
+//using CMS.Service.Services;
 
-FontSizeService fontSizeService = new FontSizeService();
+//FontSizeService fontSizeService = new FontSizeService();
 //var res1 = await fontSizeService.CreateAsync(new CMS.Service.DTOs.FontSizes.FontSizeCreationDto
 //{
 //    Size = "25px"
@@ -50,8 +50,36 @@ FontSizeService fontSizeService = new FontSizeService();
 //var res3 = await fontSizeService.GetByIdAsync(4);
 //Console.WriteLine(res3.Data.Id +" "+res3.Data.Size);
 
-var res4 = await fontSizeService.GetAllAsync();
-res4.Data.ToList().ForEach(r => Console.WriteLine(r.Size));
+//var res4 = await fontSizeService.GetAllAsync();
+//res4.Data.ToList().ForEach(r => Console.WriteLine(r.Size));
 
-var res5 = await fontSizeService.DeleteAsync(4);
+//var res5 = await fontSizeService.DeleteAsync(4);
+//Console.WriteLine(res5.Message);
+
+using CMS.Service.Services;
+
+TimeZonService timeZonService = new TimeZonService();
+//var res1 = await timeZonService.CreateAsync(new CMS.Service.DTOs.TimeZones.TimeZonCreationDto
+//{
+//    Name = "Krasnoyarsk Summer Time",
+//    Abbreviation = "KRAST",
+//    OffSet = "UTC +7"
+//});
+//Console.WriteLine(res1.Data.OffSet);
+
+//var res2 = await timeZonService.UpdateAsync(new CMS.Service.DTOs.TimeZones.TimeZonUpdateDto
+//{
+//    Id = 6,
+//    Name = "Krasnoyarsk Summer Time",
+//    Abbreviation = "KRAST",
+//    OffSet = "UTC +8"
+//});
+//Console.WriteLine(res2.Data.OffSet);
+
+//var res3 = await timeZonService.GetByIdAsync(6);
+//Console.WriteLine(res3.Data.Name);
+//var res4 = await timeZonService.GetAllAsync();
+//res4.Data.ToList().ForEach(x => Console.WriteLine(x.Name));
+
+var res5 = await timeZonService.DeleteAsync(6);
 Console.WriteLine(res5.Message);
