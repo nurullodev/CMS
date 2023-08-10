@@ -3,5 +3,5 @@
 public class DesignToolCreationDto
 {
     public long ColorId { get; set; }
-    public long FontSizeId { get; set; }
+    public long FontTypeId { get; set; }
 }

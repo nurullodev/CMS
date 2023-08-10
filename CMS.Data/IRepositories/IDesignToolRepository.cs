@@ -5,4 +5,5 @@ namespace CMS.Data.IRepositories;
 
 public interface IDesignToolRepository : IRepository<DesignTool>
 {
+    Task<DesignTool> SelectByColorIdAndFontIdAsync(long colorId, long fontId);
 }

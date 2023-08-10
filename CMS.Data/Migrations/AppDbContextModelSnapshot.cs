@@ -48,31 +48,31 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4377),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4214),
                             Name = "Movies"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4377),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4215),
                             Name = "Fitness"
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4378),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4216),
                             Name = "Politics"
                         },
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4379),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4216),
                             Name = "World"
                         },
                         new
                         {
                             Id = 5L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4379),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4217),
                             Name = "Technology"
                         });
                 });
@@ -129,7 +129,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 1L,
                             Attribute = 1,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4364),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4203),
                             DamenId = 1L,
                             Description = "Good",
                             DesignCategoryId = 1L,
@@ -140,7 +140,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 2L,
                             Attribute = 2,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4365),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4204),
                             DamenId = 2L,
                             Description = "Good",
                             DesignCategoryId = 2L,
@@ -175,13 +175,13 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4309),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4150),
                             Name = "Red"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4310),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4151),
                             Name = "Yellow"
                         });
                 });
@@ -219,28 +219,28 @@ namespace CMS.Data.Migrations
                         {
                             Id = 1L,
                             ColorId = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4333),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4169),
                             FontTypeId = 1L
                         },
                         new
                         {
                             Id = 2L,
                             ColorId = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4334),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4170),
                             FontTypeId = 1L
                         },
                         new
                         {
                             Id = 3L,
                             ColorId = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4335),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4171),
                             FontTypeId = 1L
                         },
                         new
                         {
                             Id = 4L,
                             ColorId = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4336),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4172),
                             FontTypeId = 1L
                         });
                 });
@@ -271,13 +271,13 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4323),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4160),
                             Type = "Normal Text"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4324),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4161),
                             Type = "[3mSmaller Text [0m"
                         });
                 });
@@ -308,25 +308,25 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3834),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4121),
                             Name = "Uzum"
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3835),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4122),
                             Name = "laptops"
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3836),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4123),
                             Name = "Vachach"
                         },
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3836),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4124),
                             Name = "Naura"
                         });
                 });
@@ -365,7 +365,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 1L,
                             Abbreviation = "ADT",
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4348),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4187),
                             Name = "Arabia",
                             OffSet = "UTC +4"
                         },
@@ -373,7 +373,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 2L,
                             Abbreviation = "AMT",
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4349),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4188),
                             Name = "Armenia",
                             OffSet = "UTC +4"
                         },
@@ -381,7 +381,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 3L,
                             Abbreviation = "AFT",
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4350),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4189),
                             Name = "Afganistan",
                             OffSet = "UTC +4:30"
                         },
@@ -389,7 +389,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 4L,
                             Abbreviation = "ALMT",
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4351),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4189),
                             Name = "Alma-Ata",
                             OffSet = "UTC +6"
                         },
@@ -397,7 +397,7 @@ namespace CMS.Data.Migrations
                         {
                             Id = 5L,
                             Abbreviation = "UZT",
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4352),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4190),
                             Name = "Uzbekistan ",
                             OffSet = "UTC +5"
                         });
@@ -453,7 +453,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3718),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(3981),
                             DamenId = 1L,
                             Email = "nurullo@gmail.com",
                             FirstName = "Nurullo",
@@ -463,7 +463,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3721),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(3984),
                             DamenId = 2L,
                             Email = "asad@gmail.com",
                             FirstName = "Asadbek",
@@ -473,7 +473,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3722),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(3985),
                             DamenId = 3L,
                             Email = "ikrom@gmail.com",
                             FirstName = "Ikrom",
@@ -483,7 +483,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3723),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(3986),
                             DamenId = 4L,
                             Email = "nurullo@gmail.com",
                             FirstName = "Axror",
@@ -532,7 +532,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(3851),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4137),
                             DamenId = 1L,
                             Email = "john@example@gmail.com",
                             UserId = 1L
@@ -540,7 +540,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4285),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4138),
                             DamenId = 2L,
                             Email = "examp@gmail.com",
                             UserId = 2L
@@ -548,7 +548,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4287),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4139),
                             DamenId = 3L,
                             Email = "exam2p@gmail.com",
                             UserId = 3L
@@ -556,7 +556,7 @@ namespace CMS.Data.Migrations
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 53, 35, 643, DateTimeKind.Utc).AddTicks(4288),
+                            CreatedAt = new DateTime(2023, 8, 10, 22, 36, 13, 829, DateTimeKind.Utc).AddTicks(4140),
                             DamenId = 4L,
                             Email = "examp3@gmail.com",
                             UserId = 4L

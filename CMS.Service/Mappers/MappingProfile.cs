@@ -49,7 +49,7 @@ public class MappingProfile : Profile
         //DesignTool
         CreateMap<DesignToolResultDto, DesignTool>().ReverseMap();
         CreateMap<DesignToolUpdateDto, DesignTool>().ReverseMap();  
-        CreateMap<DesignCategory, DesignCategoryCreationDto>().ReverseMap();
+        CreateMap<DesignTool, DesignToolCreationDto>().ReverseMap();
 
         //Color
         CreateMap<ColorResultDto, Color>().ReverseMap();    

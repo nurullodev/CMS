@@ -84,4 +84,18 @@
 //var res5 = await timeZonService.DeleteAsync(6);
 //Console.WriteLine(res5.Message);
 
-Console.WriteLine("f");
+//using CMS.Service.Services;
+
+//FontTypeService fontTypeService = new FontTypeService();
+////await fontTypeService.CreateAsync(new CMS.Service.DTOs.FontTypes.FontTypeCreationDto
+////{
+////    Type = "Time new romenas"
+////});
+
+
+using CMS.Service.Services;
+
+DesignToolService designToolService = new DesignToolService();
+var res = await designToolService.GetAllAsync();
+foreach (var item in res.Data)
+    Console.WriteLine(item.ColorResultDto.Name+" "+ item.FontTypeResultDto.Type);

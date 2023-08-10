@@ -7,5 +7,5 @@ public class DesignToolResultDto
 {
     public long Id { get; set; }
     public ColorResultDto ColorResultDto { get; set; }
-    public FontTypeResultDto FontSizeResultDto { get; set; }
+    public FontTypeResultDto FontTypeResultDto { get; set; }
 }

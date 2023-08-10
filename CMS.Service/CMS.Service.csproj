@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="PInvoke.Windows.Core" Version="0.7.124" />
   </ItemGroup>
 
 </Project>
