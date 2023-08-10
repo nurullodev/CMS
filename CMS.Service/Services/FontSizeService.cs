@@ -4,6 +4,9 @@ using CMS.Data.ICommons;
 using CMS.Domain.Entities.DesignTools;
 using CMS.Service.DTOs.FontSizes;
 using CMS.Service.DTOs.FontSizes;
+using CMS.Service.DTOs.FontSizes;
+using CMS.Service.DTOs.FontSizes;
+using CMS.Service.DTOs.FontSizes;
 using CMS.Service.Helpers;
 using CMS.Service.Interfaces;
 using CMS.Service.Mappers;
@@ -20,6 +23,7 @@ public class FontSizeService : IFontSizeService
         mapper = new Mapper(new MapperConfiguration
             (cf => cf.AddProfile<MappingProfile>()));
     }
+
     public async Task<Response<FontSizeResultDto>> CreateAsync(FontSizeCreationDto dto)
     {
         var existFontSize = await this.unitOfWork.FontSizeRepository
@@ -45,23 +49,80 @@ public class FontSizeService : IFontSizeService
         };
     }
 
-    public Task<Response<FontSizeResultDto>> UpdateAsync(FontSizeUpdateDto dto)
+    public async Task<Response<FontSizeResultDto>> UpdateAsync(FontSizeUpdateDto dto)
     {
-        throw new NotImplementedException();
+        var existFontSize = await this.unitOfWork.FontSizeRepository.SelectByIdAsync(dto.Id);
+        if (existFontSize is null)
+            return new Response<FontSizeResultDto>
+            {
+                StatusCode = 404,
+                Message = $"This FontSize Id {dto.Id} is not found",
+                Data = null
+            };
+
+        var mapperFontSize = mapper.Map(dto, existFontSize);
+        mapperFontSize.UpdatedAt = DateTime.UtcNow;
+        this.unitOfWork.FontSizeRepository.Update(mapperFontSize);
+        await this.unitOfWork.SaveAsync();
+
+        return new Response<FontSizeResultDto>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = mapper.Map<FontSizeResultDto>(mapperFontSize)
+        };
     }
 
-    public Task<Response<FontSizeResultDto>> GetByIdAsync(long id)
+    public async Task<Response<FontSizeResultDto>> GetByIdAsync(long id)
     {
-        throw new NotImplementedException();
+        var existFontSize = await this.unitOfWork.FontSizeRepository.SelectByIdAsync(id);
+        if (existFontSize is null)
+            return new Response<FontSizeResultDto>
+            {
+                StatusCode = 404,
+                Message = $"This FontSize Id {id} is not found",
+                Data = null
+            };
+
+        return new Response<FontSizeResultDto>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = mapper.Map<FontSizeResultDto>(existFontSize)
+        };
     }
 
-    public Task<Response<bool>> DeleteAsync(long id)
+    public async Task<Response<bool>> DeleteAsync(long id)
     {
-        throw new NotImplementedException();
+        var existFontSize = await this.unitOfWork.FontSizeRepository.SelectByIdAsync(id);
+        if (existFontSize is null)
+            return new Response<bool>
+            {
+                StatusCode = 404,
+                Message = $"This FontSize ID {id} is not found",
+                Data = false
+            };
+
+        this.unitOfWork.FontSizeRepository.Delete(existFontSize);
+        await this.unitOfWork.SaveAsync();
+
+        return new Response<bool>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = true
+        };
     }
 
-    public Task<Response<IEnumerable<FontSizeResultDto>>> GetAllAsync()
+    public async Task<Response<IEnumerable<FontSizeResultDto>>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var fontSizes = this.unitOfWork.FontSizeRepository.SelectAll();
+        var mapperFontSizes = mapper.Map<IEnumerable<FontSizeResultDto>>(fontSizes);
+        return new Response<IEnumerable<FontSizeResultDto>>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = mapperFontSizes
+        };
     }
 }

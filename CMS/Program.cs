@@ -28,8 +28,30 @@
 using CMS.Service.Services;
 
 FontSizeService fontSizeService = new FontSizeService();
-var res1 = await fontSizeService.CreateAsync(new CMS.Service.DTOs.FontSizes.FontSizeCreationDto
-{
-    Size = "25px"
-});
-Console.WriteLine(res1.Data.Size);
+//var res1 = await fontSizeService.CreateAsync(new CMS.Service.DTOs.FontSizes.FontSizeCreationDto
+//{
+//    Size = "25px"
+//});
+//Console.WriteLine(res1.Data.Size);
+
+//var res1 = await fontSizeService.CreateAsync(new CMS.Service.DTOs.FontSizes.FontSizeCreationDto
+//{
+//    Size = "20px"
+//});
+//Console.WriteLine(res1.Data.Size);
+
+//var res2 = await fontSizeService.UpdateAsync(new CMS.Service.DTOs.FontSizes.FontSizeUpdateDto
+//{
+//    Id = 4,
+//    Size = "22,5px"
+//});
+//Console.WriteLine(res2.Data.Size);
+
+//var res3 = await fontSizeService.GetByIdAsync(4);
+//Console.WriteLine(res3.Data.Id +" "+res3.Data.Size);
+
+var res4 = await fontSizeService.GetAllAsync();
+res4.Data.ToList().ForEach(r => Console.WriteLine(r.Size));
+
+var res5 = await fontSizeService.DeleteAsync(4);
+Console.WriteLine(res5.Message);
