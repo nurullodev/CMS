@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CMS.Service.DTOs.Users;
+using CMS.Service.Helpers;
 
-namespace CMS.Service.Interfaces
+namespace CMS.Service.Interfaces;
+
+public interface IUserService
 {
-    internal class IUserService
-    {
-    }
+    Task<Response<UserResultDto>> CreateAsync(UserCreationDto dto);
+    Task<Response<UserResultDto>> UpdateAsync(UserUpdateDto dto);
+    Task<Response<bool>> DeleteAsync(long id);
+    Task<Response<IEnumerable<UserResultDto>>> GetAllAsync();
 }
