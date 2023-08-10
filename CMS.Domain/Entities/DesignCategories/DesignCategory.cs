@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CMS.Domain.Commons;
+using CMS.Domain.Entities.Designs;
 
-namespace CMS.Domain.Entities.DesignCategories
+namespace CMS.Domain.Entities.DesignCategories;
+
+public class DesignCategory : Auditable 
 {
-    internal class DesignCategory
-    {
-    }
+    public string Name { get; set; }
+    public IQueryable<Design> Designs { get; set; }
 }

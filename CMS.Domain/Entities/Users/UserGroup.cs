@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CMS.Domain.Commons;
+using CMS.Domain.Entities.Domains;
 
-namespace CMS.Domain.Entities.Users
+namespace CMS.Domain.Entities.Users;
+
+public class UserGroup : Auditable
 {
-    internal class UserGroup
-    {
-    }
+    public string Email { get; set; }
+
+    public long UserId { get; set; }
+    public User User { get; set; }
+
+    public long DamenId { get; set; }
+    public Damen Damen { get; set; }
 }
