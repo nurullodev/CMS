@@ -1,10 +1,12 @@
 ﻿using CMS.Domain.Commons;
 using CMS.Domain.Entities.Domains;
+using System.ComponentModel.DataAnnotations;
 
 namespace CMS.Domain.Entities.Users;
 
 public class UserGroup : Auditable
 {
+    [EmailAddress]
     public string Email { get; set; }
 
     public long UserId { get; set; }
