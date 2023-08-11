@@ -151,12 +151,14 @@ public class UserService : IUserService
 
     private UserResultDto Including(User mapperUser)
     {
-        var user = appDbContext.Users
+        var user1 = appDbContext.Users
             .Include(d => d.Damen)
-            .Include(de => de.Design)
             .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
-        var damen = mapper.Map<DamenResultDto>(user.Damen);
-        var design = mapper.Map<DesignResultDto>(user.Design);
+        var user2 = appDbContext.Users
+            .Include(d =>d.Design)
+            .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
+        var damen = mapper.Map<DamenResultDto>(user1.Damen);
+        var design = mapper.Map<DesignResultDto>(user2.Design);
         var result = mapper.Map<UserResultDto>(mapperUser);
 
         result.DamenResultDto = damen;

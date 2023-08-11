@@ -25,7 +25,7 @@ public class UserHomeView
                 }
             case "2": 
                 {
-                    userServiceView.Checking(); 
+                    userServiceView.Checking();
                     break;
                 }
         }
