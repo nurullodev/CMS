@@ -11,7 +11,7 @@ public class UserHomeView
 
     public void Dashboard()
     {
-        Console.WriteLine("1.Damen\n" +
+        Console.WriteLine("1. Damen\n" +
                     "2. Design\n" +
                     "3. Cagegory\n" +
                     "4. Design Tools\n" +
@@ -69,6 +69,8 @@ public class UserHomeView
                 }
             case "8":
                 {
+                    UserServiceView userServiceView = new UserServiceView();
+                    userServiceView.Methods();
                     break;
                 }
             case "9": 
