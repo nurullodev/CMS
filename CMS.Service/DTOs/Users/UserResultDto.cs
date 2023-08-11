@@ -1,5 +1,6 @@
 ﻿using CMS.Service.DTOs.Damens;
 using CMS.Service.DTOs.DesignCategories;
+using CMS.Service.DTOs.Designs;
 
 namespace CMS.Service.DTOs.Users;
 
@@ -11,5 +12,5 @@ public class UserResultDto
     public string Email { get; set; }
     public string Password { get; set; }
     public DamenResultDto DamenResultDto { get; set; }
-    public DesignCategoryResultDto DesignCategoryResultDto { get; set; }
+    public DesignResultDto DesignResultDto { get; set; }
 }

@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
 using CMS.Data.Commons;
+using CMS.Data.DbContexts;
 using CMS.Data.ICommons;
 using CMS.Domain.Entities.Domains;
 using CMS.Domain.Entities.Users;
+using CMS.Service.DTOs.Damens;
 using CMS.Service.DTOs.Users;
 using CMS.Service.Helpers;
 using CMS.Service.Interfaces;
 using CMS.Service.Mappers;
+using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Service.Services;
 
@@ -14,8 +17,10 @@ public class UserService : IUserService
 {
     private readonly IMapper mapper;
     private readonly IUnitOfWork unitOfWork;
+    private readonly AppDbContext appDbContext;
     public UserService()
     {
+        appDbContext = new AppDbContext();
         unitOfWork = new UnitOfWork();
         mapper = new Mapper(new MapperConfiguration
             (cf => cf.AddProfile<MappingProfile>()));
@@ -59,7 +64,12 @@ public class UserService : IUserService
         mapperUser.UpdatedAt = DateTime.UtcNow;
         this.unitOfWork.UserRepository.Update(mapperUser);
         await this.unitOfWork.SaveAsync();
-
+        var user = appDbContext.Users
+            .Include(d => d.Damen)
+            .Include(de => de.Design)
+            .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
+        var damen = mapper.Map<DamenResultDto>(user.Damen);
+        var 
         return new Response<UserResultDto>
         {
             StatusCode = 200,
@@ -67,6 +77,7 @@ public class UserService : IUserService
             Data = mapper.Map<UserResultDto>(mapperUser)
         };
     }
+
 
     public async Task<Response<UserResultDto>> GetByIdAsync(long id)
     {
