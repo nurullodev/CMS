@@ -1,4 +1,5 @@
-﻿using CMS.Service.DTOs.Users;
+﻿using CMS.Print.Views.DamensView;
+using CMS.Service.DTOs.Users;
 using CMS.Service.Helpers;
 using CMS.Service.Interfaces;
 using CMS.Service.Services;
@@ -8,6 +9,57 @@ namespace CMS.Print.Views.UserViews;
 public class UserServiceView
 {
     private readonly IUserService userService = new UserService();
+
+    public async void Methods()
+    {
+        Console.WriteLine("1. Create\n" +
+            "2. Update\n" +
+            "3. get by Id\n" +
+            "4. Delete \n" +
+            "5. Get All\n" +
+            "6. Dashboard");
+        Console.Write(">>>>> ");
+        string number = Console.ReadLine();
+        switch (number)
+        {
+            case "1":
+                {
+                    Create();
+                    break;
+                }
+            case "2":
+                {
+                    Update();
+                    break;
+                }
+            case "3":
+                {
+                    GetById();
+                    break;
+                }
+            case "4":
+                {
+                    Delete();
+                    break;
+                }
+            case "5":
+                {
+                    GetAll();
+                    break;
+                }
+            case "6":
+                {
+                    UserHomeView userHomeView = new UserHomeView();
+                    userHomeView.Dashboard();
+                    break;
+                }
+            default:
+                {
+                    Methods();
+                    break;
+                }
+        }
+    }
 
     public async void Create()
     {
@@ -142,9 +194,8 @@ public class UserServiceView
         }
         else
         {
-
+            UserHomeView userHomeView = new UserHomeView();
+            userHomeView.Dashboard();
         }
-
-
     }
 }
