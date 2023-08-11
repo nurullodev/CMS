@@ -5,4 +5,5 @@ namespace CMS.Data.IRepositories;
 
 public interface IDamenRepository : IRepository<Damen>
 {
+    Task<Damen> SelectByNameAsync(string name);
 }
