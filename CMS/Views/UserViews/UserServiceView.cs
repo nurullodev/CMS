@@ -179,23 +179,4 @@ public class UserServiceView
             }
         }
     }
-
-    public async void Checking()
-    {
-        Console.Write("Email: ");
-        string email = Console.ReadLine();
-        Console.Write("Password: ");
-        string password = Console.ReadLine();
-        var response = await this.userService.CheckEmailAndPasswordAsync(email, password);
-        if (response.StatusCode != 200)
-        {
-            Console.WriteLine("you need log in");
-            Create();
-        }
-        else
-        {
-            UserHomeView userHomeView = new UserHomeView();
-            userHomeView.Dashboard();
-        }
-    }
 }

@@ -6,5 +6,4 @@ namespace CMS.Data.IRepositories;
 public interface IUserRepository : IRepository<User>
 {
     Task<User> SelectByEmailAsync(string email);
-    Task<User> SelectByEmailAndPasswordAsync(string email, string password);
 }

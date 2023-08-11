@@ -131,35 +131,18 @@ public class UserService : IUserService
             Data = usersResult
         };
     }
-    public async Task<Response<UserResultDto>> CheckEmailAndPasswordAsync(string email, string password)
-    {
-        var result = await this.unitOfWork.UserRepository.SelectByEmailAndPasswordAsync(email, password);
-        if (result is null)
-            return new Response<UserResultDto>
-            {
-                StatusCode = 404,
-                Message = "This user is not found",
-                Data = null
-            };
-        return new Response<UserResultDto>
-        {
-            StatusCode = 200,
-            Message = "Success",
-            Data = mapper.Map<UserResultDto>(result)
-        };
-    }
 
     private UserResultDto Including(User mapperUser)
     {
-        var user1 = appDbContext.Users
-            .Include(d => d.Damen)
-            .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
-        var user2 = appDbContext.Users
-            .Include(d =>d.Design)
-            .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
+        var existDamen = this.unitOfWork.DamenRepository.SelectAll()
+            .FirstOrDefault(d => d.Id.Equals(mapperUser.DamenId));
 
-        var damen = mapper.Map<DamenResultDto>(user1.Damen);
-        var design = mapper.Map<DesignResultDto>(user2.Design);
+        var existDesign = this.unitOfWork.DesignRepository.SelectAll()
+            .FirstOrDefault(d => d.Id.Equals(mapperUser.DesignId));
+
+
+        var damen = mapper.Map<DamenResultDto>(existDamen);
+        var design = mapper.Map<DesignResultDto>(existDesign);
         var result = mapper.Map<UserResultDto>(mapperUser);
 
         result.DamenResultDto = damen;

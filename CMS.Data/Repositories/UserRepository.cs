@@ -15,9 +15,5 @@ public class UserRepository : Repository<User>, IUserRepository
     }
 
     public async Task<User> SelectByEmailAsync(string email)
-        => await _appDbContext.Users.FirstOrDefaultAsync(u => u.Email.Equals(email));
-
-    public async Task<User> SelectByEmailAndPasswordAsync(string email, string password)
-        => await this._appDbContext.Users
-        .FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password));   
+        => await _appDbContext.Users.FirstOrDefaultAsync(u => u.Email.Equals(email));  
 }

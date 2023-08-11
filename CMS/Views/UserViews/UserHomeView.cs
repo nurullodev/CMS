@@ -8,41 +8,19 @@ namespace CMS.Print.Views.UserViews;
 public class UserHomeView
 {
     private readonly UserServiceView userServiceView = new UserServiceView();
-    public void UserHome()
-    {
-        Console.WriteLine("1. Sing up\n" +
-            "2. Log in");
-        Console.Write(">>>>> ");
-        string answer = Console.ReadLine();
-        switch(answer)
-        {
-            case "1":
-                {
-                    userServiceView.Create();
-                    Console.Clear();
-                    userServiceView.Checking();
-                    break;
-                }
-            case "2": 
-                {
-                    userServiceView.Checking();
-                    break;
-                }
-        }
-    }
 
     public void Dashboard()
     {
         Console.WriteLine("1.Damen\n" +
-                    "2. Design" +
-                    "3. Cagegory" +
-                    "4. Design Tools" +
-                    "5. Friends" +
-                    "6. Color" +
-                    "7. Font type" +
-                    "8. User" +
-                    "9. Time zone" +
-                    "10. Main");
+                    "2. Design\n" +
+                    "3. Cagegory\n" +
+                    "4. Design Tools\n" +
+                    "5. Friends\n" +
+                    "6. Color\n" +
+                    "7. Font type\n" +
+                    "8. User\n" +
+                    "9. Time zone\n" +
+                    "10. Exit");
         Console.Write(">>>>> ");
         string number = Console.ReadLine();
         switch (number)
@@ -97,11 +75,6 @@ public class UserHomeView
                 {
                     TimeZonServiceView timeZonServiceView = new TimeZonServiceView();
                     timeZonServiceView.Methods(); 
-                    break;
-                }
-            case "10": 
-                {
-                    UserHome();
                     break;
                 }
             default: 
