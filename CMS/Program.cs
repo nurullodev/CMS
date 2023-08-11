@@ -93,8 +93,13 @@
 ////});
 
 
-using CMS.Service.Services;
+//using CMS.Service.Services;
 
-UserService userService = new UserService();
-var res = await userService.GetByIdAsync(1);
-Console.WriteLine(res.Data.FirstName);
+//UserService userService = new UserService();
+//var res = await userService.GetByIdAsync(1);
+//Console.WriteLine(res.Data.FirstName);
+
+using CMS.Print.Views.UserViews;
+
+UserHomeView userHomeView = new UserHomeView();
+userHomeView.UserHome();

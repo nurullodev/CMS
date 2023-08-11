@@ -131,6 +131,23 @@ public class UserService : IUserService
             Data = usersResult
         };
     }
+    public async Task<Response<UserResultDto>> CheckEmailAndPasswordAsync(string email, string password)
+    {
+        var result = await this.unitOfWork.UserRepository.SelectByEmailAndPasswordAsync(email, password);
+        if (result is null)
+            return new Response<UserResultDto>
+            {
+                StatusCode = 404,
+                Message = "This user is not found",
+                Data = null
+            };
+        return new Response<UserResultDto>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = mapper.Map<UserResultDto>(result)
+        };
+    }
 
     private UserResultDto Including(User mapperUser)
     {
@@ -147,4 +164,5 @@ public class UserService : IUserService
 
         return result;
     }
+
 }

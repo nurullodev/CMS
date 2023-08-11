@@ -176,6 +176,31 @@ public class DesignService : IDesignService
         };
     }
 
+    public async Task<Response<bool>> DeleteByCategoryIdAsync(long categoryId)
+    {
+        var designs = this.unitOfWork.DesignRepository.SelectAll()
+            .Where(d => d.DesignCategoryId.Equals(categoryId));
+        if (!designs.Any())
+            return new Response<bool>
+            {
+                StatusCode = 404,
+                Message = "Not found",
+                Data = false
+            };
+
+        foreach(var design in designs)
+        {
+            this.unitOfWork.DesignRepository.Delete(design);
+            await unitOfWork.SaveAsync();
+        }
+        return new Response<bool>
+        {
+            StatusCode = 200,
+            Message = "Success",
+            Data = true
+        };
+    }
+
     private DesignResultDto Including(Design mapperDesign)
     {
         var design = appDbContext.Designs
