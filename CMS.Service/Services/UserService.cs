@@ -2,9 +2,9 @@
 using CMS.Data.Commons;
 using CMS.Data.DbContexts;
 using CMS.Data.ICommons;
-using CMS.Domain.Entities.Domains;
 using CMS.Domain.Entities.Users;
 using CMS.Service.DTOs.Damens;
+using CMS.Service.DTOs.Designs;
 using CMS.Service.DTOs.Users;
 using CMS.Service.Helpers;
 using CMS.Service.Interfaces;
@@ -64,20 +64,16 @@ public class UserService : IUserService
         mapperUser.UpdatedAt = DateTime.UtcNow;
         this.unitOfWork.UserRepository.Update(mapperUser);
         await this.unitOfWork.SaveAsync();
-        var user = appDbContext.Users
-            .Include(d => d.Damen)
-            .Include(de => de.Design)
-            .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
-        var damen = mapper.Map<DamenResultDto>(user.Damen);
-        var 
+
+        var result = Including(mapperUser);
+
         return new Response<UserResultDto>
         {
             StatusCode = 200,
             Message = "Success",
-            Data = mapper.Map<UserResultDto>(mapperUser)
+            Data = result
         };
     }
-
 
     public async Task<Response<UserResultDto>> GetByIdAsync(long id)
     {
@@ -90,11 +86,13 @@ public class UserService : IUserService
                 Data = null
             };
 
+        var result = Including(existUser);
+
         return new Response<UserResultDto>
         {
             StatusCode = 200,
             Message = "Success",
-            Data = mapper.Map<UserResultDto>(existUser)
+            Data = result
         };
     }
 
@@ -123,12 +121,30 @@ public class UserService : IUserService
     public async Task<Response<IEnumerable<UserResultDto>>> GetAllAsync()
     {
         var users = this.unitOfWork.UserRepository.SelectAll();
-        var mapperUsers = mapper.Map<IEnumerable<UserResultDto>>(users);
+        var usersResult = new List<UserResultDto>();
+        foreach (var user in users)
+            usersResult.Add(Including(user));
         return new Response<IEnumerable<UserResultDto>>
         {
             StatusCode = 200,
             Message = "Success",
-            Data = mapperUsers
+            Data = usersResult
         };
+    }
+
+    private UserResultDto Including(User mapperUser)
+    {
+        var user = appDbContext.Users
+            .Include(d => d.Damen)
+            .Include(de => de.Design)
+            .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
+        var damen = mapper.Map<DamenResultDto>(user.Damen);
+        var design = mapper.Map<DesignResultDto>(user.Design);
+        var result = mapper.Map<UserResultDto>(mapperUser);
+
+        result.DamenResultDto = damen;
+        result.DesignResultDto = design;
+
+        return result;
     }
 }

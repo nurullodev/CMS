@@ -92,6 +92,7 @@ public class DesignToolService : IDesignToolService
                 Message = "This font type Id is not found"
             };
         var mapperTool = mapper.Map(dto, existTool);
+        mapperTool.UpdatedAt = DateTime.UtcNow;
         this.unitOfWork.DesignToolRepository.Update(mapperTool);
         await this.unitOfWork.SaveAsync();
 
