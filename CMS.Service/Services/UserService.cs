@@ -157,6 +157,7 @@ public class UserService : IUserService
         var user2 = appDbContext.Users
             .Include(d =>d.Design)
             .FirstOrDefault(u => u.Id.Equals(mapperUser.Id));
+
         var damen = mapper.Map<DamenResultDto>(user1.Damen);
         var design = mapper.Map<DesignResultDto>(user2.Design);
         var result = mapper.Map<UserResultDto>(mapperUser);

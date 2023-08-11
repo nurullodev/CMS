@@ -6,12 +6,9 @@ using CMS.Domain.Entities.Designs;
 using CMS.Service.DTOs.Damens;
 using CMS.Service.DTOs.DesignCategories;
 using CMS.Service.DTOs.Designs;
-using CMS.Service.DTOs.Designs;
-using CMS.Service.DTOs.Designs;
 using CMS.Service.Helpers;
 using CMS.Service.Interfaces;
 using CMS.Service.Mappers;
-using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Service.Services;
 
@@ -19,10 +16,8 @@ public class DesignService : IDesignService
 {
     private readonly IMapper mapper;
     private readonly IUnitOfWork unitOfWork;
-    private readonly AppDbContext appDbContext;
     public DesignService()
     {
-        appDbContext = new AppDbContext();
         unitOfWork = new UnitOfWork();
         mapper = new Mapper(new MapperConfiguration
             (cf => cf.AddProfile<MappingProfile>()));
@@ -31,7 +26,7 @@ public class DesignService : IDesignService
     public async Task<Response<DesignResultDto>> CreateAsync(DesignCreationDto dto)
     {
         var existDesign = await this.unitOfWork
-            .DesignRepository.SelectByDamenIdAndNameAsync(dto.Name , dto.DamenId);
+            .DesignRepository.SelectByDamenIdAndNameAsync(dto.Name, dto.DamenId);
         if (existDesign is not null)
             return new Response<DesignResultDto>
             {
@@ -73,7 +68,7 @@ public class DesignService : IDesignService
             Data = result
         };
     }
-    
+
     public async Task<Response<DesignResultDto>> UpdateAsync(DesignUpdateDto dto)
     {
         var existDesign = await this.unitOfWork.DesignRepository.SelectByIdAsync(dto.Id);
@@ -166,7 +161,7 @@ public class DesignService : IDesignService
     {
         var designs = this.unitOfWork.DesignRepository.SelectAll();
         var designsResult = new List<DesignResultDto>();
-        foreach(var design in designs)
+        foreach (var design in designs)
             designsResult.Add(Including(design));
         return new Response<IEnumerable<DesignResultDto>>
         {
@@ -188,7 +183,7 @@ public class DesignService : IDesignService
                 Data = false
             };
 
-        foreach(var design in designs)
+        foreach (var design in designs)
         {
             this.unitOfWork.DesignRepository.Delete(design);
             await unitOfWork.SaveAsync();
@@ -203,13 +198,14 @@ public class DesignService : IDesignService
 
     private DesignResultDto Including(Design mapperDesign)
     {
-        var design = appDbContext.Designs
-            .Include(c => c.DesignCategory)
-            .Include(c => c.Damen)
-            .FirstOrDefault(d => d.Id.Equals(mapperDesign.Id));
+        var existDamen = this.unitOfWork.DamenRepository.SelectAll()
+            .FirstOrDefault(d => d.Id.Equals(mapperDesign.DamenId));
 
-        var damen = mapper.Map<DamenResultDto>(design.Damen);
-        var category = mapper.Map<DesignCategoryResultDto>(design.DesignCategory);
+        var existCategory = this.unitOfWork.DesignCategoryRepository.SelectAll()
+            .FirstOrDefault(c => c.Id.Equals(mapperDesign.DesignCategoryId));
+
+        var damen = mapper.Map<DamenResultDto>(existDamen);
+        var category = mapper.Map<DesignCategoryResultDto>(existCategory);
         var result = mapper.Map<DesignResultDto>(mapperDesign);
 
         result.DamenResultDto = damen;

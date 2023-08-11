@@ -9,7 +9,6 @@ using CMS.Service.DTOs.FontTypes;
 using CMS.Service.Helpers;
 using CMS.Service.Interfaces;
 using CMS.Service.Mappers;
-using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Service.Services;
 
@@ -17,11 +16,9 @@ public class DesignToolService : IDesignToolService
 {
     private readonly IMapper mapper;
     private readonly IUnitOfWork unitOfWork;
-    private readonly AppDbContext appDbContext;
     public DesignToolService()
     {
         unitOfWork = new UnitOfWork();
-        appDbContext = new AppDbContext();
         mapper = new Mapper(new MapperConfiguration
             (cf => cf.AddProfile<MappingProfile>()));
     }
@@ -30,7 +27,7 @@ public class DesignToolService : IDesignToolService
     {
         var existTool = await this.unitOfWork
             .DesignToolRepository.SelectByColorIdAndFontIdAsync(dto.ColorId, dto.FontTypeId);
-        
+
         if (existTool is not null)
             return new Response<DesignToolResultDto>
             {
@@ -63,7 +60,7 @@ public class DesignToolService : IDesignToolService
         {
             StatusCode = 200,
             Message = "Success",
-            Data = result 
+            Data = result
         };
     }
 
@@ -97,7 +94,7 @@ public class DesignToolService : IDesignToolService
         await this.unitOfWork.SaveAsync();
 
         var result = Including(mapperTool);
-        
+
         return new Response<DesignToolResultDto>
         {
             StatusCode = 200,
@@ -165,14 +162,15 @@ public class DesignToolService : IDesignToolService
 
     private DesignToolResultDto Including(DesignTool mapperTool)
     {
-        var tool = appDbContext.DesignTools
-                    .Include(c => c.Color)
-                    .Include(f => f.FontType)
-                    .FirstOrDefault(d => d.Id.Equals(mapperTool.Id));
+        var existColor = this.unitOfWork.ColorRepository.SelectAll()
+            .FirstOrDefault(c => c.Id.Equals(mapperTool.ColorId));
+        var existFont = this.unitOfWork.FontTypeRepository.SelectAll()
+            .FirstOrDefault(f => f.Id.Equals(mapperTool.FontTypeId));
 
-        var color = mapper.Map<ColorResultDto>(tool.Color);
-        var font = mapper.Map<FontTypeResultDto>(tool.FontType);
-        var result = mapper.Map<DesignToolResultDto>(tool);
+
+        var color = mapper.Map<ColorResultDto>(existColor);
+        var font = mapper.Map<FontTypeResultDto>(existFont);
+        var result = mapper.Map<DesignToolResultDto>(mapperTool);
 
         result.ColorResultDto = color;
         result.FontTypeResultDto = font;
