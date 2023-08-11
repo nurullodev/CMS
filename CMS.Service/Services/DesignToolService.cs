@@ -28,6 +28,17 @@ public class DesignToolService : IDesignToolService
 
     public async Task<Response<DesignToolResultDto>> CreateAsync(DesignToolCreationDto dto)
     {
+        var existTool = await this.unitOfWork
+            .DesignToolRepository.SelectByColorIdAndFontIdAsync(dto.ColorId, dto.FontTypeId);
+        
+        if (existTool is not null)
+            return new Response<DesignToolResultDto>
+            {
+                StatusCode = 403,
+                Message = "This tool is already exist",
+                Data = null
+            };
+
         var isValidColorId = await this.unitOfWork.ColorRepository.SelectByIdAsync(dto.ColorId);
         if (isValidColorId is null)
             return new Response<DesignToolResultDto>
@@ -42,7 +53,6 @@ public class DesignToolService : IDesignToolService
                 StatusCode = 404,
                 Message = "This font type Id is not found"
             };
-
         var mapperTool = mapper.Map<DesignTool>(dto);
         await this.unitOfWork.DesignToolRepository.AddAsync(mapperTool);
         await this.unitOfWork.SaveAsync();

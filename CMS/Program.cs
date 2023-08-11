@@ -95,7 +95,6 @@
 
 using CMS.Service.Services;
 
-DesignToolService designToolService = new DesignToolService();
-var res = await designToolService.GetAllAsync();
-foreach (var item in res.Data)
-    Console.WriteLine(item.ColorResultDto.Name+" "+ item.FontTypeResultDto.Type);
+UserService userService = new UserService();
+var res = await userService.GetByIdAsync(1);
+Console.WriteLine(res.Data.FirstName);
