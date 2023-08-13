@@ -12,12 +12,13 @@ public class UserServiceView
 
     public async void Methods()
     {
-        Console.WriteLine(@"1. Create
-            2. Update
-            3. Get by Id 
-            4. Delete 
-            5. Get All
-            6. Dashboard");
+        Console.WriteLine(@"--------- User Page ----------
+1. Create
+2. Update
+3. Get by Id 
+4. Delete 
+5. Get All
+6. Dashboard");
         Console.Write(">>>>> ");
         string number = Console.ReadLine();
         switch (number)
