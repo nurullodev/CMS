@@ -18,7 +18,8 @@ public class ColorServiceView
 3. Get by Id 
 4. Delete 
 5. Get All
-6. Dashboard");
+6. Dashboard
+");
         Console.Write(">>>>> ");
         string number = Console.ReadLine();
         switch (number)
