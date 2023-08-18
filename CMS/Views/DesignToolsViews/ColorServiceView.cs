@@ -12,12 +12,14 @@ public class ColorServiceView
 
     public async void Methods()
     {
-        Console.WriteLine("1. Create\n" +
-            "2. Update\n" +
-            "3. get by Id\n" +
-            "4. Delete \n" +
-            "5. Get All\n" +
-            "6. Dashboard");
+        Console.WriteLine(@"---------- Color Page ----------
+1. Create
+2. Update
+3. Get by Id 
+4. Delete 
+5. Get All
+6. Dashboard
+");
         Console.Write(">>>>> ");
         string number = Console.ReadLine();
         switch (number)

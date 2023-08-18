@@ -11,16 +11,17 @@ public class UserHomeView
 
     public void Dashboard()
     {
-        Console.WriteLine("1. Damen\n" +
-                    "2. Design\n" +
-                    "3. Cagegory\n" +
-                    "4. Design Tools\n" +
-                    "5. Friends\n" +
-                    "6. Color\n" +
-                    "7. Font type\n" +
-                    "8. User\n" +
-                    "9. Time zone\n" +
-                    "10. Exit");
+        Console.WriteLine(@"---------- Contact Management System ----------
+1. Damen
+2. Design
+3. Cagegory
+4. Design Tools
+5. Friends
+6. Color
+7. Font type
+8. User
+9. Time zone
+10. Exit");
         Console.Write(">>>>> ");
         string number = Console.ReadLine();
         switch (number)
