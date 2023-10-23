@@ -1,13 +1,31 @@
-# Contact Management System
+# CMS - Content Management System
 
-_This repository is created for the Contact Management System (CMS). CMS is a system that allows users to manage their contacts and communicate with them effectively._
+![Project Status](https://img.shields.io/badge/status-in%20progress-yellow)
 
-# Description
+A Content Management System (CMS) is a web application designed to make it easy for non-technical users to create, edit, and manage digital content.
 
-_Contact Management System is a popular application for managing contacts for businesses or individuals. Users can perform the following actions using this application:_
+## Features
 
-    **1.Add new contacts and edit existing ones.
-    2.Organize and search for contacts.
-    3.Add information to contacts such as phone numbers, email addresses, appointment times, physical addresses, and more.
-    4.Group contacts and categorize them in various ways.
-    5.Make calls and exchange messages with contacts.**
+- **User-Friendly Interface**: An intuitive interface that allows users to manage their content effortlessly.
+
+- **Content Creation**: Easily create and publish articles, pages, and multimedia content.
+
+- **Role-Based Access**: Control user access and permissions with role management.
+
+- **SEO-Friendly**: Built with SEO in mind to help improve your website's visibility on search engines.
+
+- **Customization**: Easily customize the design and layout of your website.
+
+- **Responsive Design**: Ensures your website looks great on all devices.
+
+## Getting Started
+
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes.
+
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/nurullodev/CMS.git
